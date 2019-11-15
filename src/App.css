@@ -1,22 +1,128 @@
-.App {
-  text-align: center;
-}
+  /*Left Panel*/
+  .leftPanel{
+    margin-top:3%;
+    margin-left:10%;
+    width:20%;
+    display: inline-block;
+  }
+  .profile-pic{
+    width:272px;
+    height: 272px;
+    border-radius:5px;
+  }
+  .profile-name{
+    font-size:20px;
+    color:gray;
+  }
+  .edit-btn{
+    width:100%;
+    padding:10px;
+    border-radius:5px;
+    border:1px solid gray;
+    font-weight:bold;
+  }
 
-.App-logo {
-  height: 40vmin;
-}
+  /*Right Panel*/
+  .rightPanel{
+    float:right;
+    margin-top:3%;
+    margin-right:10%;
+    width:55%;
+    display: inline-block;
+  }
+  .tabs{
+    border-bottom:1px solid lightgray;
+    margin:10px;
+  }
+  .tabs li{
+    display: inline-block;
+    margin:10px;
+  }
+  .tabs li a{
+    text-decoration: none;
+    color:black;
+    font-size:16px;
+    padding:5px;
+  }
+  .tabs li a:hover{
+    border-bottom:2px solid gray;
+    transition:0.2s;
+  }
+  .active{
+    border-bottom:2px solid orange;
+  }
+  .reposCount{
+    margin:5px;
+    padding:2px;
+    background-color:lightgray;
+    border-radius:10px;
+  }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /*Search Panel*/
+  .search-input{
+    width:55%;
+    padding:8px;
+    border:2px solid lightgray;
+    border-radius:3px;
+  }
+  .search-type,.search-language,.newbtn{
+    padding:8px;
+    border-radius:3px;
+    background-color:lightgray;
+    font-weight: bold;
+    margin:2px;
+  }
+.newbtn{
+background-color:#28a745;
+border:1px solid lightgray;
+color:white;
 }
-
-.App-link {
-  color: #09d3ac;
-}
+  .searchResults{
+    font-size:14px;
+  }
+  .searchPanel, .search-list, .searchResults{
+    border-bottom:1px solid lightgray;
+    margin:10px;
+    padding:10px;
+  }
+  .search-list,.searchResults{
+    list-style-type: none;
+  }
+  .search-list a{
+    text-decoration: none;
+    color:blue;
+    font-weight: bold;
+  }
+  .search-list a:hover{
+    border-bottom:2px solid blue;
+  }
+  .search-list small{
+    margin:5px;
+  }
+  .clearFilter{
+    float:right;
+    padding: 5px;
+    margin-top: -10px;
+    border-radius: 5px;
+    background-color: lightgray;
+    border: 1px solid lightgray;
+  }
+  /*Responsive*/
+  @media screen and (max-width: 992px) {
+      .leftPanel,.rightPanel {
+        width:100%;
+        margin:0%;
+      }
+      .leftPanel{
+        margin-left:5%;
+        margin-right:5%;
+        width:90%;
+        margin-top:5%;
+      }
+      .rightPanel{
+        margin-top:10%;
+      }
+      .search-input{
+        width:95%;
+      }
+  }
