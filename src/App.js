@@ -49,16 +49,16 @@ class App extends Component {
     /*If type array contains type string*/
     if(this.state.type.includes(event.target.value))
     {
-    this.setState({searchType: event.target.value.substr(0,20)});
+    this.setState({searchType: event.target.value.substr(0)});
     }
     /*If languages array contains language string*/
     else if(this.state.languages.includes(event.target.value))
     {
-    this.setState({searchLanguage: event.target.value.substr(0,20)});
+    this.setState({searchLanguage: event.target.value.substr(0)});
     }
     /*If data contains project name*/
     else{
-      this.setState({search: event.target.value.substr(0,20)});
+      this.setState({search: event.target.value.substr(0)});
     }
   }
 
@@ -74,46 +74,46 @@ class App extends Component {
     /*Normal Search filtering using project name*/
     let filteredRepos = this.state.repos.filter(
       (item)=>{
-        return item.name.indexOf(this.state.search)!==-1;
+        return item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1;
       });
     /*Search filtering using Type and Language along with project name*/
     let filteredReposType = this.state.repos.filter(
       (item)=>{
         /*If Language is selected*/
         if(this.state.searchLanguage.length>0){
-          if(this.state.searchType==="All" && item.name.indexOf(this.state.search)!==-1 && item.language===this.state.searchLanguage) {
+          if(this.state.searchType==="All" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1 && item.language===this.state.searchLanguage) {
             return filteredRepos;
           }
-          if(this.state.searchType==="Forks" && item.name.indexOf(this.state.search)!==-1 && item.language===this.state.searchLanguage){
+          if(this.state.searchType==="Forks" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1 && item.language===this.state.searchLanguage){
             return item.fork===true;
           }
-          if(this.state.searchType==="Sources" && item.name.indexOf(this.state.search)!==-1 && item.language===this.state.searchLanguage){
+          if(this.state.searchType==="Sources" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1 && item.language===this.state.searchLanguage){
             return item.has_issues===true;
           }
-          if(this.state.searchType==="Archived" && item.name.indexOf(this.state.search)!==-1 && item.language===this.state.searchLanguage){
+          if(this.state.searchType==="Archived" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1 && item.language===this.state.searchLanguage){
             return item.archived===true;
           }
-          if(this.state.searchType==="Mirrors" && item.name.indexOf(this.state.search)!==-1 && item.language===this.state.searchLanguage){
+          if(this.state.searchType==="Mirrors" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1 && item.language===this.state.searchLanguage){
             return item.mirror_url!==null;
           }
-          if(item.name.indexOf(this.state.search)!==-1 && item.language===this.state.searchLanguage) {
+          if(item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1 && item.language===this.state.searchLanguage) {
             return filteredRepos;
           }
         } else{ /*Except language remaining selected*/
           console.log("Type");
-          if(this.state.searchType==="Forks" && item.name.indexOf(this.state.search)!==-1){
+          if(this.state.searchType==="Forks" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1){
             return item.fork===true;
           }
-          if(this.state.searchType==="All" && item.name.indexOf(this.state.search)!==-1){
+          if(this.state.searchType==="All" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1){
             return filteredRepos;
           }
-          if(this.state.searchType==="Sources" && item.name.indexOf(this.state.search)!==-1){
+          if(this.state.searchType==="Sources" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1){
             return item.has_issues===true;
           }
-          if(this.state.searchType==="Archived" && item.name.indexOf(this.state.search)!==-1){
+          if(this.state.searchType==="Archived" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1){
             return item.archived===true;
           }
-          if(this.state.searchType==="Mirrors" && item.name.indexOf(this.state.search)!==-1){
+          if(this.state.searchType==="Mirrors" && item.name.toLowerCase().indexOf(this.state.search.toLowerCase())!==-1){
             return item.mirror_url!==null;
           }
         }
