@@ -21,7 +21,7 @@ class App extends Component {
     this.getRepos();
   }
   /*Getting profile data*/
-  getProfile= _ =>{
+  getProfile(){
     fetch('https://api.github.com/users/supreetsingh247')
       .then(response => response.json())
       .then(response => this.setState({
@@ -34,7 +34,7 @@ class App extends Component {
       .catch(err=>console.error(err))
   }
   /*Getting Repositories data and filtering languages*/
-  getRepos= _ =>{
+  getRepos(){
     fetch('https://api.github.com/users/supreetsingh247/repos')
       .then(response => response.json())
       .then(response => this.setState({repos: response}))
